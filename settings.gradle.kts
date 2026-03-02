@@ -33,3 +33,6 @@ plugins {
 }
 
 include(":composeApp")
+include(":androidApplication")
+include(":core")
+include(":features")

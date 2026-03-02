@@ -1,0 +1,99 @@
+{
+  "projectName": "VocaMinder",
+  "description": "Kotlin Multiplatform vocabulary reminder app (Android + iOS)",
+
+  "platform": {
+    "type": "KMP",
+    "targets": ["Android", "iOS"],
+    "sharedLanguage": "Kotlin"
+  },
+
+  "architecture": {
+    "pattern": "MVI + Clean Architecture",
+    "navigation": "Decompose",
+    "stateManagement": "MVIKotlin",
+    "lifecycle": "Essenty",
+    "dependencyInjection": "manual constructor injection (no Koin/Hilt)"
+  },
+
+  "techStack": {
+    "language": "Kotlin 2.3.0",
+    "jvmTarget": "17",
+    "minSdk": 24,
+    "targetSdk": 36,
+    "compileSdk": 36,
+    "frameworks": {
+      "composeMultiplatform": "1.10.1",
+      "material3Kmp": "1.10.0-alpha05",
+      "material3Android": "1.3.1",
+      "decompose": "3.3.0",
+      "essenty": "2.5.0",
+      "mvikotlin": "4.3.0",
+      "coroutines": "1.10.2",
+      "kotlinxSerialization": "1.8.1",
+      "kotlinxDatetime": "0.6.2",
+      "kotlinxCollectionsImmutable": "0.4.0"
+    }
+  },
+
+  "moduleStructure": {
+    "type": "multi-module",
+    "pattern": "feature-based",
+    "modules": {
+      "androidApplication": "Android entry point — MainActivity, Previews",
+      "composeApp": "Shared UI layer — screens, theme, RootContent, App",
+      "features": "Feature components — Decompose components + MVIKotlin stores",
+      "core": "Shared utilities — cache, date/decimal formatting, extensions, settings"
+    }
+  },
+
+  "packages": {
+    "ui": "org.vocaminder",
+    "features": "org.vocaminder",
+    "core": "org.voceminder.core"
+  },
+
+  "featurePattern": {
+    "api": [
+      "<Feature>Component (interface)",
+      "<Feature>ComponentState (State/Intent/Event)",
+      "Preview<Feature>Component"
+    ],
+    "internal": [
+      "Default<Feature>Component (ComponentContext impl)",
+      "<Feature>Store (MVIKotlin)"
+    ]
+  },
+
+  "existingFeatures": ["root", "home", "crudwordset", "settings"],
+
+  "buildSystem": {
+    "agp": "9.0.0",
+    "kotlinDsl": true,
+    "versionCatalogs": true,
+    "catalogLocation": "gradle/libs.versions.toml"
+  },
+
+  "resources": {
+    "location": "composeApp/src/commonMain/composeResources/",
+    "fonts": ["abeezee.ttf", "abeezee_italic.ttf"],
+    "drawables": ["add_icon_24dp", "ic_delete_24dp", "ic_edit_24dp", "ic_translate_24dp", "ic_more_up_24dp"]
+  },
+
+  "currentContext": {
+    "activeSprint": null,
+    "focusAreas": [],
+    "recentChanges": [
+      "Extracted androidApplication module from composeApp",
+      "Added features and core modules",
+      "Set up MVI pattern with MVIKotlin stores"
+    ],
+    "knownIssues": []
+  },
+
+  "metadata": {
+    "created": "2026-03-02",
+    "lastUpdated": "2026-03-02",
+    "version": "2.0"
+  }
+}

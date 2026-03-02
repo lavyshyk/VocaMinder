@@ -1,0 +1,92 @@
+{
+  "projectName": "Android Application",
+  "description": "Current project context and state",
+  
+  "architecture": {
+    "pattern": "MVI + Clean Architecture",
+    "layers": ["domain", "data", "presentation"],
+    "stateManagement": "StateFlow + SharedFlow",
+    "navigation": "Decompose",
+    "dependencyInjection": "Koin"
+  },
+  
+  "techStack": {
+    "language": "Kotlin 2.0.0",
+    "jvmTarget": "17",
+    "minSdk": 24,
+    "targetSdk": 34,
+    "compileSdk": 34,
+    "frameworks": {
+      "compose": "1.6.10",
+      "material3": "1.2.1",
+      "decompose": "3.0.0",
+      "essenty": "2.0.0",
+      "ktor": "2.3.11",
+      "room": "2.6.1",
+      "koin": "3.5.6",
+      "coil": "2.6.0"
+    }
+  },
+  
+  "moduleStructure": {
+    "type": "multi-module",
+    "pattern": "feature-based",
+    "modules": {
+      "app": "Main application module",
+      "shared": {
+        "common": "Shared utilities",
+        "domain": "Business logic",
+        "data": "Data sources",
+        "presentation": "UI components"
+      },
+      "features": "feature-* modules for each major feature"
+    }
+  },
+  
+  "buildSystem": {
+    "gradle": "8.5",
+    "agp": "8.3.2",
+    "kotlinDsl": true,
+    "versionCatalogs": true,
+    "catalogLocation": "gradle/libs.versions.toml"
+  },
+  
+  "teamConventions": {
+    "codeReview": {
+      "required": true,
+      "minimumApprovals": 1
+    },
+    "testing": {
+      "minimumCoverage": "70%",
+      "requiredForPR": true
+    },
+    "commits": {
+      "format": "type(scope): subject",
+      "types": ["feat", "fix", "refactor", "test", "docs", "chore"]
+    },
+    "branches": {
+      "format": "type/ticket-description",
+      "examples": ["feature/AUTH-123-login", "bugfix/PROD-456-crash"]
+    }
+  },
+  
+  "currentContext": {
+    "activeSprint": null,
+    "focusAreas": [],
+    "recentChanges": [],
+    "knownIssues": []
+  },
+  
+  "preferences": {
+    "autoFormat": true,
+    "autoImports": true,
+    "warningsAsErrors": false,
+    "strictMode": true
+  },
+  
+  "metadata": {
+    "created": "2026-03-02",
+    "lastUpdated": "2026-03-02",
+    "version": "2.0"
+  }
+}

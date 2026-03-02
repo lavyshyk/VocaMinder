@@ -4,18 +4,22 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidKmpLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
 }
 
 kotlin {
-    androidTarget {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
-        }
+
+    androidLibrary {
+        compileSdk = 36
+        minSdk = 24
+        namespace = "org.vocaminder.app"
+        androidResources.enable = true
+
     }
+
     
     listOf(
         iosArm64(),
@@ -42,18 +46,28 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
-            implementation(libs.compose.uiToolingPreview)
+            implementation(libs.androidx.ui.tooling)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.compose.ui)
+            implementation(libs.androidx.compose.material3)
+            implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.compose.uiToolingPreview)
+            implementation(libs.bundles.preview)
+
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
+            api(libs.material3.windowsize)
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
-            implementation(libs.compose.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+            api(libs.bundles.mvikotlin)
+            api(libs.decompose)
+            api(libs.decompose.compose)
+            api(libs.kotlinx.collections.immutable)
+
+            implementation(projects.features)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -61,39 +75,14 @@ kotlin {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
+
         }
     }
 }
-
-android {
-    namespace = "org.vocaminder"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        applicationId = "org.vocaminder"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-dependencies {
-    debugImplementation(libs.compose.uiTooling)
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "org.vocaminder.generated.resources"
+    generateResClass = auto
 }
 
 compose.desktop {

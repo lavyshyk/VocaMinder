@@ -1,0 +1,88 @@
+{
+  "conversationHistory": {
+    "description": "Track context and decisions across development sessions",
+    "lastUpdated": "2026-03-02",
+    "sessions": []
+  },
+  
+  "currentTasks": {
+    "inProgress": [
+      {
+        "id": "TASK-001",
+        "title": "Example: Implement user authentication",
+        "status": "in-progress",
+        "startedAt": "2026-03-01",
+        "notes": "Working on biometric integration",
+        "blockers": []
+      }
+    ],
+    "completed": [],
+    "backlog": []
+  },
+  
+  "recentDecisions": [
+    {
+      "date": "2026-03-02",
+      "decision": "Use Decompose instead of Jetpack Navigation",
+      "reasoning": "Better multiplatform support",
+      "impact": "Changes navigation architecture"
+    }
+  ],
+  
+  "knownIssues": [
+    {
+      "id": "ISSUE-001",
+      "severity": "medium",
+      "description": "Example: Compose recomposition performance on product list",
+      "workaround": "Added stable keys and @Immutable annotations",
+      "resolution": null
+    }
+  ],
+  
+  "learnings": [
+    {
+      "date": "2026-03-02",
+      "topic": "Example: StateFlow vs SharedFlow",
+      "lesson": "StateFlow for state (has value), SharedFlow for events (no value)",
+      "context": "Discussed during MVI implementation"
+    }
+  ],
+  
+  "codebaseChanges": {
+    "recentRefactorings": [],
+    "addedDependencies": [],
+    "removedDependencies": [],
+    "architectureChanges": []
+  },
+  
+  "questionsAsked": [
+    {
+      "question": "Example: How to handle deep links with Decompose?",
+      "answer": "Use Configuration with @Serializable and handle in root component",
+      "askedAt": "2026-03-01"
+    }
+  ],
+  
+  "preferences": {
+    "rememberFromConversations": true,
+    "trackDecisions": true,
+    "logIssues": true
+  },
+  
+  "metadata": {
+    "created": "2026-03-02",
+    "totalSessions": 0,
+    "averageSessionDuration": null
+  },
+  
+  "usage": {
+    "howToUse": "This file tracks conversation context across sessions. Update it during development to maintain continuity.",
+    "updateFrequency": "After each significant conversation or decision",
+    "benefits": [
+      "Remember context between sessions",
+      "Track decisions and rationale",
+      "Learn from past issues",
+      "Maintain project history"
+    ]
+  }
+}

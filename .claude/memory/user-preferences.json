@@ -1,0 +1,91 @@
+{
+  "userProfile": {
+    "experienceLevel": "intermediate",
+    "role": "android-developer",
+    "preferredLanguage": "kotlin",
+    "timezone": "UTC"
+  },
+  
+  "codingPreferences": {
+    "verbosity": {
+      "comments": "moderate",
+      "explanations": "detailed",
+      "codeStyle": "clean"
+    },
+    "naming": {
+      "components": "FeatureComponent",
+      "states": "FeatureState",
+      "intents": "FeatureIntent",
+      "useCases": "VerbNounUseCase",
+      "repositories": "NounRepository"
+    },
+    "formatting": {
+      "indentation": "4 spaces",
+      "maxLineLength": 120,
+      "trailingCommas": true
+    }
+  },
+  
+  "workflowPreferences": {
+    "beforeCoding": {
+      "requirePlan": false,
+      "askClarifyingQuestions": true,
+      "suggestAlternatives": true
+    },
+    "duringCoding": {
+      "explainComplexLogic": true,
+      "addTODOsForFutureWork": true,
+      "warnAboutRisks": true
+    },
+    "afterCoding": {
+      "suggestTests": true,
+      "provideIntegrationNotes": true,
+      "offerImprovements": false
+    }
+  },
+  
+  "communicationStyle": {
+    "tone": "professional-friendly",
+    "emojis": "moderate",
+    "humor": "occasional",
+    "formality": "balanced"
+  },
+  
+  "skillPreferences": {
+    "autoLoadSkills": true,
+    "preferredSkills": [
+      "compose",
+      "decompose",
+      "testing"
+    ],
+    "skipSkills": []
+  },
+  
+  "safetyPreferences": {
+    "requireConfirmation": {
+      "destructiveOperations": true,
+      "largeRefactoring": true,
+      "databaseMigrations": true
+    },
+    "alwaysWarnAbout": [
+      "security-risks",
+      "data-loss",
+      "breaking-changes"
+    ]
+  },
+  
+  "testingPreferences": {
+    "generateTests": "when-requested",
+    "testStyle": "AAA",
+    "mockingLibrary": "MockK",
+    "preferTDD": false
+  },
+  
+  "metadata": {
+    "created": "2026-03-02",
+    "lastUpdated": "2026-03-02",
+    "version": "1.0"
+  },
+  
+  "notes": "Customize these preferences to match your personal coding style and workflow!"
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 960 960">
+    <path
+        d="M680,640v-360L320,280v-80h440v440h-80ZM480,840v-360L120,480v-80h440v440h-80Z"
+        fill="#000000"/>
+</svg>
